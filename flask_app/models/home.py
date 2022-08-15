@@ -35,10 +35,10 @@ class Home:
             flash("what's a house without a room?","home")
         if int(home['bathrooms']) < 1:
             is_valid = False
-            flash("where do you poo?","home")
+            flash("house must have atleast 1 bathroom","home")
         if int(home['squarefootage']) < 1:
             is_valid = False
-            flash("I've heard of minimalism, but this is taking it too far","home")
+            flash("house must be atleast 1 sqft","home")
         return is_valid
 
     @classmethod
