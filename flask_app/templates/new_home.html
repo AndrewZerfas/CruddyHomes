@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>List Your Cruddy House</title>
+</head>
+<body class="bg-secondary p-4">
+    <header>
+        <h1 style="color:rebeccapurple;text-align:left;">Cruddy Homes</h1>
+        <nav style="text-align:right;">
+            <h2 style="text-align:center;">{{user.first_name}} {{user.last_name}}</h2>
+            <a href="/dashboard" class="btn btn-primary">Dashboard</a>
+            <a href="/logout" class="btn btn-info">Logout</a>
+        </nav>
+    </header>
+    <form action="/create/home" method="post" class="col-11 p-2 my-4 bg-dark text-light mx-auto">
+        <h2 class="text-primary">List Your Cruddy House</h2>
+        {% with messages = get_flashed_messages(category_filter=['home']) %}
+            {% if messages %}
+            <div class="alert alert-danger" role="alert">
+                <strong>AHHHHHHH!!!!</strong>
+                    {% for message in messages %}
+                    <p>{{message}}</p>
+                    {% endfor %}
+            </div>
+            {% endif %}
+        {% endwith %}
+        <div class="d-flex justify-content-between col-9">
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="location">Location:</label>
+                    <input type="text" name="location" class="form-control">
+                </div>
+                <label for="price">Price:</label>
+                <div class="input-group-text bg-dark">
+                    <input type="number" name="price" value="0" class="form-control" >
+                </div>
+            </div>
+            <div class="col-4">
+                <label for="rooms">Rooms:</label>
+                <div class="input-group-text bg-dark">
+                    <input type="number" name="rooms" value="0" class="form-control" >
+                </div>
+                <label for="bathrooms">Bathrooms:</label>
+                <div class="input-group-text bg-dark">
+                    <input type="number" name="bathrooms" value="0" class="form-control" >
+                </div>
+                <label for="squarefootage">Square Footage:</label>
+                <div class="input-group-text bg-dark">
+                    <input type="number" name="squarefootage" value="0" class="form-control" >
+                </div>
+                <br>
+                <input type="submit" value="List Home" class="btn btn-warning">
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

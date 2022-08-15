@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>{{user.first_name}}'s Dashboard</title>
+</head>
+<body class="bg-secondary p-4">
+    <header>
+        <h1 style="color:rebeccapurple;text-align:left;">The Cruddiest Homes On The Internet!!</h1>
+        <nav style="text-align:right;">
+            <h2 style="text-align:center;">{{user.first_name}} {{user.last_name}}</h2>
+            <a href="/new/home" class="btn btn-primary">Sell Your Cruddy Home!</a>
+            <a href="/logout" class="btn btn-info">Logout</a>
+        </nav>
+    </header>
+    <main>
+        <h2 style="text-align:left;">Listed Homes</h2>
+        <div class="d-flex" style="text-align:left;">
+            <form class="col-5.5 p-2 bg-dark text-light">
+    <div>
+        <table>
+            <tbody>
+                {% for home in homes %}
+                    <tr>
+                        <div >
+                        <td class="p-2">Location: {{home.location}}</td>
+                        <td class="p-2">Price: ${{home.price}}</td>
+                        <td class="p-2">Rooms: {{home.rooms}}</td>
+                        <td class="p-2">Bathrooms: {{home.bathrooms}}</td> 
+                        <td class="p-2">Square Footage: {{home.squarefootage}} sqft</td>                 
+                        <td class="p-2">
+                            {% if home.user_id == session.user_id %}
+                            <a href="/edit/home/{{home.id}}" class="btn btn-warning">Edit</a>
+                            <a href="/destroy/home/{{home.id}}" class="btn btn-warning">Delete</a>
+                            {% else %}
+                            <a href="/home/{{home.id}}" class="btn btn-warning">View</a>    
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </div>
+        </table>
+    </div>
+</form>
+</div>
+    </main>
+</body>
+</html>

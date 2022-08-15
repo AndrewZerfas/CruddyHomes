@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Peep This Cruddy House!!!!!!</title>
+</head>
+<body class="bg-secondary p-4">
+    <header>
+        <h1 style="color:rebeccapurple;text-align:left;">Cruddy Homes</h1>
+        <nav style="text-align:right;">
+            <h2 style="text-align:center;">{{user.first_name}} {{user.last_name}}</h2>
+            <a href="/dashboard" class="btn btn-primary">Dashboard</a>
+            <a href="/logout" class="btn btn-info">Logout</a>
+        </nav>
+    </header>
+    <div class="card col-10 mx-auto my-5 bg-dark text-light">
+        <div class="card-body">
+            <h2 class="card-title text-primary">Location: {{home.location}}</h2>
+            <p class="card-text">Price:  ${{home.price}}</p>
+            <p class="card-text">Rooms: {{home.rooms}}</p>
+            <p class="card-text">Bathrooms:  {{home.bathrooms}}</p>
+            <p class="card-text">Square Footage: {{home.squarefootage}} sqft</p>
+        </div>
+    </div>
+</body>
+</html>
